@@ -1,3 +1,5 @@
+
+"use client"; 
 import './globals.css'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react';
@@ -12,10 +14,10 @@ import {
 } from "@clerk/nextjs";
 import Image from 'next/image';
 
-export const metadata: Metadata = {
+/*export const metadata: Metadata = {
   title: 'Visualize AI',
   description: 'Generate Visualize Value type illustrations for any ideas',
-}
+}*/
 
 function Header() {
   return (

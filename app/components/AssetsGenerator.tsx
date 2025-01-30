@@ -1,3 +1,4 @@
+"use client"; 
 import React, { useState, useEffect } from 'react';
 import { useUser, useClerk } from '@clerk/nextjs';
 import AssetsPreview from './AssetsPreview';

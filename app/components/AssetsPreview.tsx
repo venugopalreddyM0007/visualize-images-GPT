@@ -1,3 +1,4 @@
+"use client"; 
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,13 +10,13 @@ type AssetsPreviewProps = {
 
 const Modal: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
-      <div className="overflow-hidden relative border rounded-lg shadow-xl shadow-gray-500/20 flex flex-col items-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30">
+      <div className="relative flex flex-col items-center overflow-hidden border rounded-lg shadow-xl shadow-gray-500/20">
         <div className="flex gap-2 absolute right-2.5">
-          <a href={src} target="_blank" download className="cursor-pointer text-lg">
+          <a href={src} target="_blank" download className="text-lg cursor-pointer">
             <FontAwesomeIcon icon={faDownload} /> {/* Download Icon */}
           </a>
-          <div className="self-end cursor-pointer text-2xl" onClick={onClose}>
+          <div className="self-end text-2xl cursor-pointer" onClick={onClose}>
             <FontAwesomeIcon icon={faTimes} />
           </div>
         </div>
@@ -48,7 +49,7 @@ const AssetsPreview: React.FC<AssetsPreviewProps> = ({ assetUrls }) => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 m-4">
+    <div className="flex flex-col items-center justify-center gap-4 m-4 sm:flex-row">
       {assetUrls.map((assetUrl, index) => (
         <div key={index} className="relative border-dashed border-2 border-gray-300 rounded-lg shadow-lg transition-shadow hover:shadow-xl aspect-w-1 aspect-h-1 w-full h-[260px] sm:w-[30%] max-w-xs overflow-hidden">
           {assetUrl ? (
@@ -66,7 +67,7 @@ const AssetsPreview: React.FC<AssetsPreviewProps> = ({ assetUrls }) => {
               />
             </div>
           ) : (
-            <div className="flex justify-center items-center h-full text-gray-500">
+            <div className="flex items-center justify-center h-full text-gray-500">
               Your Illustration
             </div>
           )}
